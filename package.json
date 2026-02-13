@@ -1,0 +1,28 @@
+{
+  "name": "refport-js",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.25.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "pnpm -r run build",
+    "lint": "eslint .",
+    "typecheck": "pnpm -r run typecheck",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.4",
+    "@eslint/js": "^9.22.0",
+    "eslint": "^9.22.0",
+    "prettier": "^3.5.3",
+    "tsdown": "^0.12.4",
+    "typescript": "^5.9.0-beta",
+    "typescript-eslint": "^8.28.0"
+  }
+}
