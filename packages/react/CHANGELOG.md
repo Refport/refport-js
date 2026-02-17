@@ -1,5 +1,13 @@
 # @refport/react
 
+## 0.4.1
+
+### Patch Changes
+
+- f887b8c: fix: generate declaration files without content hashes so TypeScript resolves types correctly
+- Updated dependencies [f887b8c]
+  - refport-js@0.2.1
+
 ## 0.4.0
 
 ### Minor Changes
