@@ -44,7 +44,7 @@ importers:
         specifier: ^18 || ^19
         version: 19.2.4
       refport-js:
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../js
     devDependencies:
       '@types/react':
