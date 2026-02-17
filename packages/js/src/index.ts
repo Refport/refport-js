@@ -6,7 +6,7 @@ import type { RefportTrackingOptions, RefportTrackingResult } from "./types";
 const DEFAULTS = {
   cookieName: "refp_id",
   paramName: "refp_id",
-  maxAge: 7_776_000,
+  maxAge: 7_776_000, // 90 days
   path: "/",
   sameSite: "Lax" as const,
   cleanUrl: true,

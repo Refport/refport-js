@@ -4,6 +4,10 @@
 
 Public SDKs for [Refport](https://refport.co) — referral tracking and partner management. Published to npm as `refport` (Node.js), `refport-js` (browser) and `@refport/react` (React).
 
+## Instructions
+
+Always update packages README.md when adding new features to deliver up-to-date usage examples.
+
 ## Architecture
 
 ```
