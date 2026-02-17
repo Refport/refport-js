@@ -4,6 +4,11 @@
   "type": "module",
   "sideEffects": false,
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Refport/refport-js",
+    "directory": "packages/node"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
