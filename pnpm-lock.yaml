@@ -30,6 +30,8 @@ importers:
         specifier: ^8.28.0
         version: 8.55.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
 
+  packages/js: {}
+
   packages/node:
     devDependencies:
       '@types/node':
@@ -41,6 +43,9 @@ importers:
       react:
         specifier: ^18 || ^19
         version: 19.2.4
+      refport-js:
+        specifier: workspace:*
+        version: link:../js
     devDependencies:
       '@types/react':
         specifier: ^19.0.0

@@ -18,6 +18,9 @@
     "build": "tsdown",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "refport-js": "workspace:*"
+  },
   "peerDependencies": {
     "react": "^18 || ^19"
   },

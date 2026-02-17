@@ -1,24 +1,23 @@
 {
-  "name": "refport",
-  "version": "0.2.0",
+  "name": "refport-js",
+  "version": "0.1.0",
   "type": "module",
   "sideEffects": false,
   "license": "MIT",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "types": "./src/index.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
   "files": [
-    "dist/**"
+    "dist/**",
+    "src/**"
   ],
   "scripts": {
     "build": "tsdown",
     "typecheck": "tsc --noEmit"
-  },
-  "devDependencies": {
-    "@types/node": "^22.0.0"
   },
   "publishConfig": {
     "access": "public"

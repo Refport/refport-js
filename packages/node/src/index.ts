@@ -32,3 +32,8 @@ export {
   RefportValidationError,
   RefportRateLimitError,
 } from "./errors";
+
+export {
+  getClickIdFromCookie,
+  getClickIdFromRequest,
+} from "./helpers/cookie";

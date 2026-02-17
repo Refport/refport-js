@@ -5,8 +5,4 @@ export default defineConfig({
   format: ["esm", "cjs"],
   dts: true,
   clean: true,
-  external: ["react", "refport-js"],
-  outputOptions: {
-    banner: '"use client";',
-  },
 });
