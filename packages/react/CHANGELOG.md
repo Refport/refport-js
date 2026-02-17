@@ -1,5 +1,11 @@
 # @refport/react
 
+## 0.4.0
+
+### Minor Changes
+
+- cf0559d: fix: using pnpm publish to resolve package version correctly when published
+
 ## 0.3.0
 
 ### Minor Changes
