@@ -6,14 +6,24 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
     "./client": {
-      "types": "./dist/client.d.ts",
-      "import": "./dist/client.js",
-      "require": "./dist/client.cjs"
+      "import": {
+        "types": "./dist/client.d.mts",
+        "default": "./dist/client.mjs"
+      },
+      "require": {
+        "types": "./dist/client.d.cts",
+        "default": "./dist/client.cjs"
+      }
     }
   },
   "files": [
@@ -32,8 +42,8 @@
   "devDependencies": {
     "@types/node": "^22.0.0",
     "better-auth": "^1.2.0",
-    "tsdown": "^0.12.5",
-    "typescript": "^5.8.3"
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
   },
   "keywords": [
     "refport",
