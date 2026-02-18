@@ -1,7 +1,6 @@
-import { getCookie, setCookie, deleteCookie } from "./cookie";
-import { getUrlParam, removeUrlParam } from "./url";
-
+import { deleteCookie, getCookie, setCookie } from "./cookie";
 import type { RefportTrackingOptions, RefportTrackingResult } from "./types";
+import { getUrlParam, removeUrlParam } from "./url";
 
 const DEFAULTS = {
   cookieName: "refp_id",

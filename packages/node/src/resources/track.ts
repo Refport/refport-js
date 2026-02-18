@@ -1,9 +1,3 @@
-import type {
-  TrackSaleParams,
-  TrackSaleResponse,
-  TrackLeadParams,
-  TrackLeadResponse,
-} from "../types";
 import {
   RefportAuthError,
   RefportError,
@@ -11,6 +5,12 @@ import {
   RefportRateLimitError,
   RefportValidationError,
 } from "../errors";
+import type {
+  TrackLeadParams,
+  TrackLeadResponse,
+  TrackSaleParams,
+  TrackSaleResponse,
+} from "../types";
 
 interface ApiErrorBody {
   error?: { code?: string; message?: string };
@@ -73,11 +73,7 @@ export class Track {
     return body as TrackLeadResponse | null;
   }
 
-  private throwForStatus(
-    status: number,
-    code: string,
-    message: string,
-  ): never {
+  private throwForStatus(status: number, code: string, message: string): never {
     switch (status) {
       case 400:
         throw new RefportValidationError(message);

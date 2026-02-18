@@ -1,9 +1,9 @@
-import { logger } from "better-auth";
 import type {
   BetterAuthPlugin,
   GenericEndpointContext,
   User,
 } from "better-auth";
+import { logger } from "better-auth";
 import type { Refport } from "refport";
 
 export interface RefportPluginConfig {

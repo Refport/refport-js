@@ -26,9 +26,7 @@
       }
     }
   },
-  "files": [
-    "dist/**"
-  ],
+  "files": ["dist/**"],
   "scripts": {
     "build": "tsdown",
     "typecheck": "tsc --noEmit"
@@ -45,13 +43,7 @@
     "tsdown": "catalog:",
     "typescript": "catalog:"
   },
-  "keywords": [
-    "refport",
-    "better-auth",
-    "referral",
-    "tracking",
-    "plugin"
-  ],
+  "keywords": ["refport", "better-auth", "referral", "tracking", "plugin"],
   "license": "MIT",
   "repository": {
     "type": "git",

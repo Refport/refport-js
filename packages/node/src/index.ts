@@ -1,6 +1,6 @@
-import type { RefportConfig } from "./types";
 import { EmbedTokens } from "./resources/embed-tokens";
 import { Track } from "./resources/track";
+import type { RefportConfig } from "./types";
 
 const DEFAULT_BASE_URL = "https://app.refport.co";
 
@@ -19,25 +19,23 @@ export class Refport {
   }
 }
 
-export type {
-  RefportConfig,
-  CreateEmbedTokenParams,
-  EmbedTokenResponse,
-  TrackSaleParams,
-  TrackSaleResponse,
-  TrackLeadParams,
-  TrackLeadResponse,
-} from "./types";
-
 export {
-  RefportError,
   RefportAuthError,
+  RefportError,
   RefportNotFoundError,
-  RefportValidationError,
   RefportRateLimitError,
+  RefportValidationError,
 } from "./errors";
-
 export {
   getClickIdFromCookie,
   getClickIdFromRequest,
 } from "./helpers/cookie";
+export type {
+  CreateEmbedTokenParams,
+  EmbedTokenResponse,
+  RefportConfig,
+  TrackLeadParams,
+  TrackLeadResponse,
+  TrackSaleParams,
+  TrackSaleResponse,
+} from "./types";

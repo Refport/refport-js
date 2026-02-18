@@ -25,9 +25,7 @@ export function setCookie(
 ): void {
   if (typeof document === "undefined") return;
 
-  const parts = [
-    `${encodeURIComponent(name)}=${encodeURIComponent(value)}`,
-  ];
+  const parts = [`${encodeURIComponent(name)}=${encodeURIComponent(value)}`];
 
   if (options.maxAge != null) parts.push(`max-age=${options.maxAge}`);
   if (options.path) parts.push(`path=${options.path}`);
@@ -35,6 +33,7 @@ export function setCookie(
   if (options.sameSite) parts.push(`SameSite=${options.sameSite}`);
   if (options.secure) parts.push("Secure");
 
+  // biome-ignore lint/suspicious/noDocumentCookie: cookie utility requires direct document.cookie access
   document.cookie = parts.join("; ");
 }
 
@@ -49,5 +48,6 @@ export function deleteCookie(
   if (options.path) parts.push(`path=${options.path}`);
   if (options.domain) parts.push(`domain=${options.domain}`);
 
+  // biome-ignore lint/suspicious/noDocumentCookie: cookie utility requires direct document.cookie access
   document.cookie = parts.join("; ");
 }

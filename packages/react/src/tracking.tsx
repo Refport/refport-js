@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import {
-  init,
   getClickId,
-  reset,
+  init,
   type RefportTrackingOptions,
   type RefportTrackingResult,
+  reset,
 } from "refport-js";
 
 export { getClickId, reset };
@@ -24,7 +24,7 @@ export function useRefportTracking(
 
   useEffect(() => {
     setResult(init(options));
-  }, []);
+  }, [options]);
 
   return result;
 }

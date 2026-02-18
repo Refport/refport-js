@@ -1,4 +1,3 @@
-import type { CreateEmbedTokenParams, EmbedTokenResponse } from "../types";
 import {
   RefportAuthError,
   RefportError,
@@ -6,6 +5,7 @@ import {
   RefportRateLimitError,
   RefportValidationError,
 } from "../errors";
+import type { CreateEmbedTokenParams, EmbedTokenResponse } from "../types";
 
 export class EmbedTokens {
   private apiKey: string;
@@ -52,9 +52,17 @@ export class EmbedTokens {
       }
     }
 
+    if (!body.publicToken || !body.expires) {
+      throw new RefportError(
+        res.status,
+        "INVALID_RESPONSE",
+        "Missing token or expiry in response",
+      );
+    }
+
     return {
-      publicToken: body.publicToken!,
-      expires: new Date(body.expires!),
+      publicToken: body.publicToken,
+      expires: new Date(body.expires),
     };
   }
 }
