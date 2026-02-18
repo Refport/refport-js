@@ -1,5 +1,11 @@
 # @refport/node
 
+## 0.3.2
+
+### Patch Changes
+
+- 2b72921: fix: throw error if no api key provided
+
 ## 0.3.1
 
 ### Patch Changes
