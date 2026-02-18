@@ -1,6 +1,6 @@
 {
   "name": "@refport/better-auth",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Better Auth plugin for Refport referral tracking",
   "type": "module",
   "sideEffects": false,
@@ -26,7 +26,9 @@
       }
     }
   },
-  "files": ["dist/**"],
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
     "build": "tsdown",
     "typecheck": "tsc --noEmit"
@@ -43,7 +45,13 @@
     "tsdown": "catalog:",
     "typescript": "catalog:"
   },
-  "keywords": ["refport", "better-auth", "referral", "tracking", "plugin"],
+  "keywords": [
+    "refport",
+    "better-auth",
+    "referral",
+    "tracking",
+    "plugin"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
