@@ -9,6 +9,10 @@ export class Refport {
   readonly track: Track;
 
   constructor(config: RefportConfig) {
+    if (!config.apiKey) {
+      throw new Error("Refport API key is required");
+    }
+
     const baseUrl = config.baseUrl ?? DEFAULT_BASE_URL;
     this.embedTokens = new EmbedTokens(config.apiKey, baseUrl);
     this.track = new Track(config.apiKey, baseUrl);
