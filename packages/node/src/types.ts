@@ -4,9 +4,8 @@ export interface RefportConfig {
 }
 
 export interface CreateEmbedTokenParams {
-  programId: string;
   tenantId?: string;
-  referralId?: string;
+  enrollmentId?: string;
   partner?: {
     email: string;
     name?: string;

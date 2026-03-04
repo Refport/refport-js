@@ -16,7 +16,7 @@ import { Refport } from "refport";
 const refport = new Refport({ apiKey: "rk_..." });
 
 const { publicToken } = await refport.embedTokens.create({
-  programId: "prog_...",
+  tenantId: "user_123",
   partner: { email: "partner@example.com" },
 });
 
@@ -49,12 +49,13 @@ const refport = new Refport({
 
 Creates a public embed token for the referral portal.
 
+At least one of `tenantId`, `enrollmentId`, or `partner` must be provided.
+
 | Param | Type | Required | Description |
 |-------|------|----------|-------------|
-| `programId` | `string` | Yes | Program ID |
-| `tenantId` | `string` | No | Tenant ID |
-| `referralId` | `string` | No | Referral ID |
-| `partner.email` | `string` | No | Partner email (auto-creates partner) |
+| `tenantId` | `string` | No | Your internal tenant/customer ID |
+| `enrollmentId` | `string` | No | Existing enrollment ID |
+| `partner.email` | `string` | No | Partner email (auto-creates and enrolls partner) |
 | `partner.name` | `string` | No | Partner name |
 
 Returns `{ publicToken: string, expires: Date }`.
