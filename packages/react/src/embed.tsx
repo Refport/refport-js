@@ -7,7 +7,6 @@ const DEFAULT_BASE_URL = "https://app.refport.co";
 export const RefportEmbed = memo(function RefportEmbed({
   token,
   theme,
-  themeOptions,
   cssVars,
   baseUrl = DEFAULT_BASE_URL,
   onError,
@@ -47,7 +46,6 @@ export const RefportEmbed = memo(function RefportEmbed({
   params.set("token", token);
   params.set("dynamicHeight", "true");
   if (theme) params.set("theme", theme);
-  if (themeOptions) params.set("themeOptions", JSON.stringify(themeOptions));
   if (cssVars) params.set("cssVars", JSON.stringify(cssVars));
 
   const iframeSrc = `${baseUrl}/embed/referrals?${params.toString()}`;

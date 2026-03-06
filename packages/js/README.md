@@ -1,6 +1,6 @@
 # refport-js
 
-Browser SDK for [Refport](https://refport.co) — captures referral click IDs from URLs and stores them in cookies for conversion attribution.
+Browser SDK for [Refport](https://refport.co) — captures referral click IDs from URLs, stores them in cookies for conversion attribution, and embeds the referral portal.
 
 ## Install
 
@@ -8,7 +8,40 @@ Browser SDK for [Refport](https://refport.co) — captures referral click IDs fr
 npm install refport-js
 ```
 
-## Usage
+## Embed Portal
+
+```ts
+import { createEmbed } from "refport-js";
+
+const embed = createEmbed(document.getElementById("portal")!, {
+  token: "pub_...",
+  theme: "light",
+  cssVars: { "--accent": "#ff6600" },
+  onError: (err) => console.error(err.message),
+});
+
+embed.destroy();
+```
+
+### `createEmbed(target, options)`
+
+Mounts a Refport referral portal iframe into the given DOM element. Returns a `RefportEmbedInstance` with:
+
+- `container` — the wrapper `<div>` element
+- `iframe` — the `<iframe>` element
+- `destroy()` — removes the embed and cleans up event listeners
+
+### Embed Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `token` | `string` | — | Public embed token (required) |
+| `theme` | `"light" \| "dark" \| "system"` | — | Color theme |
+| `cssVars` | `Record<string, string>` | — | Custom CSS variables |
+| `baseUrl` | `string` | `"https://app.refport.co"` | API base URL |
+| `onError` | `(error: { code: string; message: string }) => void` | — | Error callback |
+
+## Click Tracking
 
 ```ts
 import { init, getClickId, reset } from "refport-js";
@@ -23,8 +56,6 @@ const clickId = getClickId();
 
 reset();
 ```
-
-## API
 
 ### `init(options?)`
 
@@ -48,7 +79,7 @@ Reads the click ID from the cookie. Returns `string | null`.
 
 Deletes the tracking cookie. Accepts `cookieName`, `path`, and `domain` options.
 
-## Options
+### Tracking Options
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|

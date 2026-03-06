@@ -58,4 +58,10 @@ export function reset(
   });
 }
 
-export type { RefportTrackingOptions, RefportTrackingResult } from "./types";
+export { createEmbed } from "./embed";
+export type {
+  RefportEmbedInstance,
+  RefportEmbedOptions,
+  RefportTrackingOptions,
+  RefportTrackingResult,
+} from "./types";

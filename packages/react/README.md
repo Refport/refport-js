@@ -20,6 +20,7 @@ function ReferralPage() {
     <RefportEmbed
       token="pub_..."
       theme="light"
+      cssVars={{ "--accent": "#ff6600" }}
       onError={(err) => console.error(err.message)}
     />
   );
@@ -32,7 +33,6 @@ function ReferralPage() {
 |------|------|-------------|
 | `token` | `string` | Public embed token (required) |
 | `theme` | `"light" \| "dark" \| "system"` | Color theme |
-| `themeOptions` | `{ backgroundColor?, primaryColor?, textColor? }` | Custom theme colors |
 | `cssVars` | `Record<string, string>` | Custom CSS variables |
 | `baseUrl` | `string` | API base URL (defaults to `https://app.refport.co`) |
 | `onError` | `(error: { code: string; message: string }) => void` | Error callback |
