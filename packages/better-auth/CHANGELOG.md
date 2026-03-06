@@ -1,5 +1,12 @@
 # @refport/better-auth
 
+## 0.1.3
+
+### Patch Changes
+
+- Updated dependencies [c283858]
+  - refport@0.4.0
+
 ## 0.1.2
 
 ### Patch Changes

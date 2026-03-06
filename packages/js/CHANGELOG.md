@@ -1,5 +1,15 @@
 # refport-js
 
+## 0.3.0
+
+### Minor Changes
+
+- 95083e5: feat: better embbed portal config
+
+### Patch Changes
+
+- d044851: chore: iife format
+
 ## 0.2.1
 
 ### Patch Changes

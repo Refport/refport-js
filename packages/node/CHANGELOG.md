@@ -1,5 +1,11 @@
 # @refport/node
 
+## 0.4.0
+
+### Minor Changes
+
+- c283858: feat: migrated to result pattern
+
 ## 0.3.3
 
 ### Patch Changes
