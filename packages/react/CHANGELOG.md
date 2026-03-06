@@ -1,5 +1,17 @@
 # @refport/react
 
+## 0.5.0
+
+### Minor Changes
+
+- 95083e5: feat: better embbed portal config
+
+### Patch Changes
+
+- Updated dependencies [d044851]
+- Updated dependencies [95083e5]
+  - refport-js@0.3.0
+
 ## 0.4.1
 
 ### Patch Changes
