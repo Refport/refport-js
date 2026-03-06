@@ -34,6 +34,7 @@ export type {
   CreateEmbedTokenParams,
   EmbedTokenResponse,
   RefportConfig,
+  Result,
   TrackLeadParams,
   TrackLeadResponse,
   TrackSaleParams,

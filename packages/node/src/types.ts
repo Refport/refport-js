@@ -1,3 +1,9 @@
+export type Result<T> =
+  | { data: T; error: null }
+  | { data: null; error: RefportError };
+
+import type { RefportError } from "./errors";
+
 export interface RefportConfig {
   apiKey: string;
   baseUrl?: string;

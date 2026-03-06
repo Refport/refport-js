@@ -15,19 +15,19 @@ import { Refport } from "refport";
 
 const refport = new Refport({ apiKey: "rk_..." });
 
-const { publicToken } = await refport.embedTokens.create({
+const { data: token, error } = await refport.embedTokens.create({
   tenantId: "user_123",
   partner: { email: "partner@example.com" },
 });
 
-await refport.track.sale({
+const { error: saleError } = await refport.track.sale({
   clickId: "clk_...",
   customerExternalId: "cus_123",
   amount: 4999,
   currency: "usd",
 });
 
-await refport.track.lead({
+const { data: lead } = await refport.track.lead({
   clickId: "clk_...",
   eventName: "signup",
   customerExternalId: "cus_123",
@@ -58,7 +58,7 @@ At least one of `tenantId`, `enrollmentId`, or `partner` must be provided.
 | `partner.email` | `string` | No | Partner email (auto-creates and enrolls partner) |
 | `partner.name` | `string` | No | Partner name |
 
-Returns `{ publicToken: string, expires: Date }`.
+Returns `{ data: { publicToken: string, expires: Date }, error: null }` on success, or `{ data: null, error: RefportError }` on failure.
 
 ## Tracking
 
@@ -126,7 +126,25 @@ const clickId = getClickIdFromCookie(req.headers.cookie);
 
 ## Error Handling
 
-All API methods throw typed errors on failure:
+All API methods return a `Result<T>` — a discriminated union of `{ data: T, error: null }` or `{ data: null, error: RefportError }`. No exceptions are thrown for API errors.
+
+```ts
+import { Refport, RefportValidationError } from "refport";
+
+const { data, error } = await refport.track.sale(params);
+
+if (error) {
+  console.error(error.message, error.status, error.code);
+
+  if (error instanceof RefportValidationError) {
+    /* handle validation specifically */
+  }
+  return;
+}
+
+/* data is typed as TrackSaleResponse here */
+console.log(data.sale.id);
+```
 
 | Error Class | Status | Code |
 |-------------|--------|------|
@@ -135,18 +153,6 @@ All API methods throw typed errors on failure:
 | `RefportValidationError` | 422 | `VALIDATION_ERROR` |
 | `RefportRateLimitError` | 429 | `RATE_LIMITED` |
 | `RefportError` | other | varies |
-
-```ts
-import { Refport, RefportValidationError } from "refport";
-
-try {
-  await refport.track.sale(params);
-} catch (err) {
-  if (err instanceof RefportValidationError) {
-    console.error(err.message, err.status, err.code);
-  }
-}
-```
 
 ## License
 

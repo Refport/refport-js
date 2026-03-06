@@ -5,7 +5,7 @@ import {
   RefportRateLimitError,
   RefportValidationError,
 } from "../errors";
-import type { CreateEmbedTokenParams, EmbedTokenResponse } from "../types";
+import type { CreateEmbedTokenParams, EmbedTokenResponse, Result } from "../types";
 
 export class EmbedTokens {
   private apiKey: string;
@@ -16,7 +16,9 @@ export class EmbedTokens {
     this.baseUrl = baseUrl;
   }
 
-  async create(params: CreateEmbedTokenParams): Promise<EmbedTokenResponse> {
+  async create(
+    params: CreateEmbedTokenParams,
+  ): Promise<Result<EmbedTokenResponse>> {
     const url = `${this.baseUrl}/api/embed/token`;
 
     const res = await fetch(url, {
@@ -40,29 +42,38 @@ export class EmbedTokens {
 
       switch (res.status) {
         case 401:
-          throw new RefportAuthError(message);
+          return { data: null, error: new RefportAuthError(message) };
         case 404:
-          throw new RefportNotFoundError(message);
+          return { data: null, error: new RefportNotFoundError(message) };
         case 422:
-          throw new RefportValidationError(message);
+          return { data: null, error: new RefportValidationError(message) };
         case 429:
-          throw new RefportRateLimitError(message);
+          return { data: null, error: new RefportRateLimitError(message) };
         default:
-          throw new RefportError(res.status, code, message);
+          return {
+            data: null,
+            error: new RefportError(res.status, code, message),
+          };
       }
     }
 
     if (!body.publicToken || !body.expires) {
-      throw new RefportError(
-        res.status,
-        "INVALID_RESPONSE",
-        "Missing token or expiry in response",
-      );
+      return {
+        data: null,
+        error: new RefportError(
+          res.status,
+          "INVALID_RESPONSE",
+          "Missing token or expiry in response",
+        ),
+      };
     }
 
     return {
-      publicToken: body.publicToken,
-      expires: new Date(body.expires),
+      data: {
+        publicToken: body.publicToken,
+        expires: new Date(body.expires),
+      },
+      error: null,
     };
   }
 }
