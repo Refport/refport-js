@@ -8,6 +8,28 @@ Browser SDK for [Refport](https://refport.co) — captures referral click IDs fr
 npm install refport-js
 ```
 
+### CDN
+
+Add this snippet before `</body>` to automatically capture referral clicks:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/refport-js/dist/index.iife.js"></script>
+<script>
+  Refport.init();
+</script>
+```
+
+Or as an ES module:
+
+```html
+<script type="module">
+  import { init } from "https://cdn.jsdelivr.net/npm/refport-js/dist/index.mjs";
+  init();
+</script>
+```
+
+Pin a specific version with `refport-js@0.2.1` in the URL.
+
 ## Embed Portal
 
 ```ts
